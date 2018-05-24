@@ -1,0 +1,14 @@
+#USAGE! 
+# 1. Replace <AndroidKeyName> with the filename of the keyfile generated (see url)
+# 2. Replace <ProjectName> with the project name in the generated file form cordova, see path/to/my/project/platforms/android/bin and look for an APK if you need help
+# 3. Replace <AndroidKeyNameAlias> from the alias used when generating the key (see url again!)
+# 4. Edit path/to/my/project/platforms/android/AndroidManifest.xml and change "debuggable=false" (search for it!)
+# 5. Check path/to/my/project/Release/android for your sparkling new apk!
+#
+# This worked and was uploadable to the google play store.
+
+cordova build android --release
+ant release -f platforms/android/build.xml
+jarsigner -verbose -sigalg MD5withRSA -digestalg SHA1 -keystore <AndroidKeyName>.keystore platforms/android/bin/<ProjectName>-release-unsigned.apk <AndroidKeyNameAlias>
+mkdir -p Release/android
+zipalign -f 4 platforms/android/bin/<ProjectName>-release-unsigned.apk Release/android/<ProjectName>-release.apk
