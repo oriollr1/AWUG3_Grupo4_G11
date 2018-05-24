@@ -20,33 +20,29 @@
     </f7-list>
 
     <f7-fab color="pink">
-    <!-- First icon is visible when Speed Dial actions are closed -->
-    <f7-icon f7="add"></f7-icon>
-    <!-- Second icon is visible when Speed Dial actions are opened -->
-    <f7-icon f7="close"></f7-icon>
-
-    <!-- Speed Dial Buttons -->
-    <f7-fab-buttons>
-      <f7-fab-button color="grey" @click="showPopover()"><f7-icon f7="folder"></f7-icon></f7-fab-button>
-      <f7-fab-button color="grey" :href="cameraSelection"><f7-icon f7="camera"></f7-icon></f7-fab-button>
-      <f7-fab-button color="grey" :href="photoPathSelection"><f7-icon f7="images"></f7-icon></f7-fab-button>
-    </f7-fab-buttons>
+      <f7-icon f7="add"></f7-icon>
+      <f7-icon f7="close"></f7-icon>
+      <f7-fab-buttons>
+        <f7-fab-button color="grey" @click="showPopover()"><f7-icon f7="folder"></f7-icon></f7-fab-button>
+        <f7-fab-button color="grey" :href="cameraSelection"><f7-icon f7="camera"></f7-icon></f7-fab-button>
+        <f7-fab-button color="grey" :href="photoPathSelection"><f7-icon f7="images"></f7-icon></f7-fab-button>
+      </f7-fab-buttons>
     </f7-fab>
-     <f7-popover :opened="showModal">
-       <f7-block>
-       <f7-list no-hairlines-md>
-         <f7-list-item>
-          <f7-label>Name</f7-label>
-          <f7-input
-          type="text"
-          :value="name"
-          @input="name = $event.target.value"
-          placeholder="Directory name"
-          clear-button
-          ></f7-input>
+    <f7-popover :opened="showModal">
+      <f7-block>
+        <f7-list no-hairlines-md>
+          <f7-list-item>
+            <f7-label>Name</f7-label>
+            <f7-input
+              type="text"
+              :value="name"
+              @input="name = $event.target.value"
+              placeholder="Directory name"
+              clear-button
+            ></f7-input>
           </f7-list-item>
-        <f7-button fill color="pink" @click="createDirectory(name)">Create</f7-button>
-       </f7-list>
+          <f7-button fill color="pink" @click="createDirectory(name)">Create</f7-button>
+        </f7-list>
       </f7-block>
     </f7-popover>
   </f7-page>
@@ -84,7 +80,7 @@ export default {
     showBack() {
       const currentFolder = this.$store.getters.getCurrentFolder
       if (!currentFolder) return false
-      
+
       return currentFolder.nativeURL !== this.$store.getters.getMainFolder
     },
     goBack() {

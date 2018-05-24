@@ -3,11 +3,6 @@ import Vuex from 'vuex'
 import b64toBlob from '../js/base64tobob'
 Vue.use(Vuex);
 
-const savebase64AsImageFile = (dir, filename, content, contentType) => {
-
-
-}
-
 export default new Vuex.Store({
   state: {
     entries: [],
@@ -50,27 +45,20 @@ export default new Vuex.Store({
       const current = getters.getCurrentFolder
       current.getDirectory(payload.dir, { create: true },
         (dirEntry) => {
-          console.log('dir created in storage')
           commit('createEntry', dirEntry)
 
           const DataBlob = b64toBlob(payload.imageData, 'image/jpeg')
 
-          console.log("Starting to write the file :3");
-
           dirEntry.getFile(Date.now()+'.jpeg', {create:true}, (file) => {
-            console.log("File created succesfully.");
             file.createWriter(function(fileWriter) {
-              console.log("Writing content to file")
               fileWriter.write(DataBlob)
             }, (error) => {
               this.$error.dispatch('addError', {type: 'ERROR_CREATING_FILE', error: error})
-              console.log('Unable to save file in path ');
             })
           })
 
         },
         (error) => {
-          console.log('error saving directory: ', error)
           commit('addError', {type: 'ENTRIES_NOT_CREATED', error: error})
         })
     },
@@ -78,11 +66,9 @@ export default new Vuex.Store({
       const current = getters.getCurrentFolder
       current.getDirectory(dir, { create: true },
         (dirEntry) => {
-          console.log('dir created in storage')
           commit('createEntry', dirEntry)
         },
         (error) => {
-          console.log('error saving directory: ', error)
           commit('addError', {type: 'ENTRIES_NOT_CREATED', error: error})
         })
     },

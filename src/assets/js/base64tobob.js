@@ -1,25 +1,20 @@
 export default (b64Data, contentType, sliceSize) => {
-  console.log('Im converting to blob')
-    contentType = contentType || ''
-    sliceSize = sliceSize || 512
+  contentType = contentType || ''
+  sliceSize = sliceSize || 512
 
-    const byteCharacters = atob(b64Data)
-    const byteArrays = []
+  const byteCharacters = atob(b64Data)
+  const byteArrays = []
 
-    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-        const byteNumbers = new Array(slice.length)
-        for (let i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i)
-        }
-
-        const byteArray = new Uint8Array(byteNumbers)
-
-        byteArrays.push(byteArray)
+  for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+    const slice = byteCharacters.slice(offset, offset + sliceSize);
+    const byteNumbers = new Array(slice.length)
+    for (let i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i)
     }
 
+    const byteArray = new Uint8Array(byteNumbers)
+    byteArrays.push(byteArray)
+  }
   const blob = new Blob(byteArrays, {type: contentType})
-  console.log(blob, 'blob')
   return blob;
 }
