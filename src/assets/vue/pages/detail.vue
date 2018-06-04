@@ -83,7 +83,7 @@ export default {
         ]
       }
 
-      axios.post('https://vision.googleapis.com/v1/images:annotate?key=API_VISION_KEY', request)
+      axios.post('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDsuOnc5V7QWZg1vJ-OCEuZmSrXJGOnVrE', request)
       .then( response => {
         this.text = JSON.stringify(response.data, null, 2)
         this.description = response.data.responses[0].labelAnnotations[0].description

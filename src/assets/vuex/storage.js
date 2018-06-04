@@ -52,6 +52,7 @@ export default new Vuex.Store({
           dirEntry.getFile(Date.now()+'.jpeg', {create:true}, (file) => {
             file.createWriter(function(fileWriter) {
               fileWriter.write(DataBlob)
+
             }, (error) => {
               this.$error.dispatch('addError', {type: 'ERROR_CREATING_FILE', error: error})
             })

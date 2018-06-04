@@ -8,13 +8,16 @@
   },
   "installed_plugins": {
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.ahajji.thingsOrganizer"
+      "PACKAGE_NAME": "com.oriollr1.Vinder"
     },
     "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.ahajji.thingsOrganizer"
+      "PACKAGE_NAME": "com.oriollr1.Vinder"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "com.ahajji.thingsOrganizer"
+      "PACKAGE_NAME": "com.oriollr1.Vinder"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.oriollr1.Vinder"
     }
   },
   "dependent_plugins": {}

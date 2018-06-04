@@ -1,5 +1,5 @@
 {
-    "name": "com.ahajji.thingsorganizer",
+    "name": "com.oriollr1.vinder",
     "version": "1.0.0",
     "description": "Vinder project",
     "scripts": {
@@ -49,6 +49,7 @@
         "cordova-browser": "^5.0.3",
         "cordova-plugin-camera": "^4.0.3",
         "cordova-plugin-file": "^6.0.1",
+        "cordova-plugin-splashscreen": "^5.0.2",
         "cordova-plugin-whitelist": "^1.3.3",
         "font-awesome": "^4.7.0",
         "framework7": "^2.0.6",
@@ -58,16 +59,16 @@
         "vue": "^2.5.13",
         "vuex": "^3.0.1"
     },
-    "displayName": "ThingsOrganizer",
+    "displayName": "Vinder",
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
             "cordova-plugin-camera": {},
-            "cordova-plugin-file": {}
+            "cordova-plugin-file": {},
+            "cordova-plugin-splashscreen": {}
         },
         "platforms": [
-            "browser",
-            "android"
+            "browser"
         ]
     }
 }

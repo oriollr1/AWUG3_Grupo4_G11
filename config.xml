@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ahajji.thingsOrganizer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.oriollr1.vinder" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="android-minSdkVersion" value="16" />
     <preference name="DisallowOverscroll" value="true" />
     <hook src="hooks/hookers.js" type="before_prepare" />
     <hook src="hooks/beforedep.js" type="before_deploy" />
-    <name>ThingsOrganizer</name>
+    <name>Vinder</name>
     <description>
         Vinder project
     </description>
-    <author email="ahajji87@gmail.com">
-        Amine Hajji
+    <author email="oriol.lopez.reina@gmail.com">
+        Grup 4
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
@@ -23,6 +23,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
     <platform name="android">
+        <splash src="res/screen/android/Splashscreen.jpg" />
         <allow-intent href="market:*" />
         <preference name="android-targetSdkVersion" value="26" />
     </platform>
@@ -33,6 +34,6 @@
     </platform>
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-file" spec="^6.0.1" />
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <engine name="browser" spec="^5.0.3" />
-    <engine name="android" spec="^7.0.0" />
 </widget>
